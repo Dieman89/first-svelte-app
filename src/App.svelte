@@ -1,30 +1,19 @@
-<script lang="ts">
-	export let name: string;
+<script type="ts">
+let name: string = "Alessandro"
+let age: number = 20
+
+$: uppercaseName = name.toUpperCase()
+
+function incAge() {
+	age += 1
+}
+
+function changeName() {
+	name = "Max"
+}
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Hey there, <a href="https://buon.dev">Alessandro Buonerba</a> is learning how to build Svelte apps with TypeScript support!.</p>
-</main>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+<h1>My name is {uppercaseName} and I am {age}</h1>
+<button on:click="{incAge}">Click here to make me older</button>
+<button on:click="{changeName}">Change Name</button>
